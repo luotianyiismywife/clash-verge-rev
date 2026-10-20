@@ -11,6 +11,7 @@ mod chatgpt;
 mod claude;
 mod disney_plus;
 mod gemini;
+mod google;
 mod netflix;
 mod prime_video;
 mod spotify;
@@ -30,6 +31,7 @@ enum UnlockCheck {
     ChatGptWeb,
     Claude,
     Gemini,
+    Google,
     YouTubePremium,
     BahamutAnime,
     Netflix,
@@ -46,6 +48,7 @@ impl UnlockCheck {
         Self::ChatGptWeb,
         Self::Claude,
         Self::Gemini,
+        Self::Google,
         Self::YouTubePremium,
         Self::BahamutAnime,
         Self::Netflix,
@@ -66,6 +69,7 @@ impl UnlockCheck {
             Self::ChatGptWeb => chatgpt::CHATGPT_WEB_NAME,
             Self::Claude => claude::CLAUDE_NAME,
             Self::Gemini => gemini::GEMINI_NAME,
+            Self::Google => google::GOOGLE_NAME,
             Self::YouTubePremium => youtube::YOUTUBE_PREMIUM_NAME,
             Self::BahamutAnime => bahamut::BAHAMUT_ANIME_NAME,
             Self::Netflix => netflix::NETFLIX_NAME,
@@ -83,6 +87,7 @@ impl UnlockCheck {
             Self::ChatGptWeb => chatgpt::check_chatgpt(client).await,
             Self::Claude => claude::check_claude(client).await,
             Self::Gemini => gemini::check_gemini(client).await,
+            Self::Google => google::check_google(client).await,
             Self::YouTubePremium => youtube::check_youtube_premium(client).await,
             Self::BahamutAnime => bahamut::check_bahamut_anime(client).await,
             Self::Netflix => netflix::check_netflix(client).await,
